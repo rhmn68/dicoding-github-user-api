@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:padding="@dimen/small_100">
+
+  <com.google.android.material.imageview.ShapeableImageView
+    android:id="@+id/iv_user"
+    android:layout_width="@dimen/medium_image"
+    android:layout_height="@dimen/medium_image"
+    android:src="@android:color/darker_gray"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:shapeAppearanceOverlay="@style/Circular" />
+
+  <TextView
+    android:id="@+id/tv_username"
+    style="@style/TextAppearance.AppCompat.Body1"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/normal_100"
+    android:layout_marginEnd="@dimen/normal_100"
+    android:layout_marginBottom="@dimen/small_100"
+    android:ellipsize="end"
+    android:maxLines="1"
+    android:text="@string/hint_default_text"
+    app:layout_constraintBottom_toTopOf="@id/tv_followers_count"
+    app:layout_constraintEnd_toStartOf="@id/btn_fav_user"
+    app:layout_constraintStart_toEndOf="@id/iv_user"
+    app:layout_constraintTop_toTopOf="@id/iv_user"
+    app:layout_constraintVertical_chainStyle="packed"
+    tools:text="@tools:sample/lorem/random" />
+
+  <TextView
+    android:id="@+id/tv_followers_count"
+    style="@style/TextAppearance.AppCompat.Caption"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="@string/hint_default_text"
+    app:layout_constraintBottom_toBottomOf="@id/iv_user"
+    app:layout_constraintStart_toStartOf="@id/tv_username"
+    app:layout_constraintTop_toBottomOf="@id/tv_username"
+    tools:text="45 Followers" />
+
+  <TextView
+    android:id="@+id/tv_following_count"
+    style="@style/TextAppearance.AppCompat.Caption"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/small_100"
+    android:text="@string/hint_default_text"
+    app:layout_constraintEnd_toEndOf="@id/tv_username"
+    app:layout_constraintStart_toEndOf="@id/tv_followers_count"
+    app:layout_constraintTop_toTopOf="@id/tv_followers_count"
+    tools:text="60 Following" />
+
+  <ImageButton
+    android:id="@+id/btn_fav_user"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:contentDescription="@null"
+    android:src="@drawable/baseline_favorite_border_24"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
