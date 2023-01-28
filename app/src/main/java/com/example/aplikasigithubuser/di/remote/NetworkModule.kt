@@ -2,11 +2,14 @@ package com.example.aplikasigithubuser.di.remote
 
 import com.example.aplikasigithubuser.BuildConfig
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+
+fun provideGson(): Gson = GsonBuilder().create()
 
 fun provideOkHttpClient(): OkHttpClient{
   val interceptor = HttpLoggingInterceptor()
@@ -29,7 +32,10 @@ fun provideRetrofit(
   okHttpClient: OkHttpClient
 ): Retrofit = Retrofit.Builder()
   .baseUrl(BuildConfig.BASE_URL)
-  .addConverterFactory(ScalarsConverterFactory.create())
   .addConverterFactory(GsonConverterFactory.create(gson))
   .client(okHttpClient)
   .build()
+
+fun provideGithubServices(
+  retrofit: Retrofit
+): GithubServices = retrofit.create(GithubServices::class.java)
